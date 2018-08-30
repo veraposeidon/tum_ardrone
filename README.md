@@ -70,7 +70,9 @@ Estimates the drone's position based on sent navdata, sent control commands and 
 rosrun ardrone_autonomy ardrone_driver _navdata_demo:=0 _loop_rate:=500
 ```
 
-#### Subscribed topics
+
+#### Subscribed topics
+
 
 - /ardrone/navdata
 - /ardrone/image_raw
@@ -86,7 +88,7 @@ rosrun ardrone_autonomy ardrone_driver _navdata_demo:=0 _loop_rate:=500
 
 None
 
-#### Parameters
+#### Parameters
 
 - ~publishFreq: frequency, at which the drone's estimated position is calculated & published. Default: 30Hz
 - ~calibFile: camera calibration file. If not set, the defaults are used (camcalib/ardroneX_default.txt).
@@ -110,11 +112,11 @@ None
                   
 - c1 ... c8: prediction model parameters of the EKF. see "Camera-Based Navigation of a Low-Cost Quadrocopter"
 
-#### Required tf transforms
+#### Required tf transforms
 
 TODO
 
-#### Provided tf transforms
+#### Provided tf transforms
 
 TODO
 
@@ -157,7 +159,7 @@ Clicking on the video window will generate waypoints, which are sent to drone_au
 
 PID controller for the drone. Also includes basic way-point-following and automatic initialization. Requires [drone_stateestimation](#drone_stateestimation) to be running. The target is set via the /tum_ardrone/com topic.
 
-#### Subscribed topics
+#### Subscribed topics
 
 - /ardrone/predictedPose
 
@@ -172,7 +174,7 @@ PID controller for the drone. Also includes basic way-point-following and automa
 
 None
 
-#### Parameters
+#### Parameters
 
 - ~minPublishFreq: usually, a control command is sent for each pose estimate received from drone_stateestimation. However, if no pose estimate is received for more than minPublishFreq milliseconds, a HOVER command is sent, causing the drone to hover if for example drone_stateestimation is shut down suddenly. Default: 110.
 - Ki_X, Kd_X, Kp_X: PID controller parameters for roll/pitch, gaz (up/down) and yaw.
@@ -180,11 +182,11 @@ None
 - rise_fac: rise commands are larger than respective drop commands by this factor. This is due to the drone sometimes dropping unpredictably fast for large drop commands, however rising somethimes requires large rise commands.
 aggressiveness: multiplied to PI-component of all commands sent. Low values lead to the drone flying "slower".
 
-#### Required tf transforms
+#### Required tf transforms
 
 TODO
 
-#### Provided tf transforms
+#### Provided tf transforms
 
 TODO
 
@@ -267,7 +269,7 @@ The behavior of the autopilot is set by sending commands on /tum_ardrone/com of 
 
 This node offers a simple QT GUI to control the [drone_autopilot](#drone_autopilot) node, the [drone_stateestimation](#drone_stateestimation) node and fly the drone manually via keyboard or joystick.
 
-#### Subscribed topics
+#### Subscribed topics
 
 - /cmd_vel
 - /tum_ardrone/com
@@ -291,15 +293,15 @@ This node offers a simple QT GUI to control the [drone_autopilot](#drone_autopil
 - calls /ardrone/togglecam
 - calls /ardrone/flattrim
 
-#### Parameters
+#### Parameters
 
 None
 
-#### Required tf transforms
+#### Required tf transforms
 
 None
 
-#### Provided tf transforms
+#### Provided tf transforms
 
 None
 
